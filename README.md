@@ -8,7 +8,7 @@ This repository includes custom functions that can be used to draw the medial ce
 
   Cite:
     
-    Nonequilibrium polysome dynamics promote chromosome segregation and its coupling to cell growth in *Escherichia coli*
+    Nonequilibrium polysome dynamics promote chromosome segregation and its coupling to cell growth in Escherichia coli
     
     Alexandros Papagiannakis, Qiwei Yu, Sander K. Govers, Wei-Hsiang Lin,  Ned S. Wingreen, Christine Jacobs-Wagner
     
