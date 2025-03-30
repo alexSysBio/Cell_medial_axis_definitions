@@ -7,7 +7,6 @@ This repository includes custom functions that can be used to draw the medial ce
   orientation of the cell pixels around the medial axis (above or below). An example for implementing the medial axis estimation is provided in the *test_medial_axis.ipynb* notebook.
 
   Cite:
-    [https://www.biorxiv.org/content/10.1101/2024.10.08.617237v2.full](https://www.biorxiv.org/content/10.1101/2024.10.08.617237v3)
     
     Nonequilibrium polysome dynamics promote chromosome segregation and its coupling to cell growth in Escherichia coli
     
