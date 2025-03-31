@@ -129,7 +129,7 @@ def fit_bivariate_polynomials(i_coords, x_coords, y_coords, degree):
     return x_hat, y_hat
 
 
-def skeleton_assisted_bivariate_axis(cropped_mask):
+def skeleton_assisted_bivariate_axis(cropped_mask, degree):
     """
     This function can be used to implement the skeleton assisted central line estimation    
     
@@ -162,16 +162,21 @@ def skeleton_assisted_bivariate_axis(cropped_mask):
     if np.max(neigh)<=4:
         coord_list = scan_skeleton(skel)
         x_coords, y_coords, i_coords = unwrap_coordinates(coord_list, 1)
-        x_hat, y_hat = fit_bivariate_polynomials(i_coords, x_coords, y_coords, 35)
+        x_hat, y_hat = fit_bivariate_polynomials(i_coords, x_coords, y_coords, degree)
+        
         axis_df=  pd.DataFrame()
         axis_df['i_coords'] = i_coords
         axis_df['x_coords'] = x_coords
         axis_df['y_coords'] = y_coords
         axis_df['x_hat'] = x_hat
         axis_df['y_hat'] = y_hat
+        roll_df = axis_df.rolling(3, min_periods=1, center=True).mean()
+        axis_df['x'] = roll_df.x_coords
+        axis_df['y'] = roll_df.y_coords
+        
         return axis_df
+    
     else:
         raise ValueError('Cell crossing event detected')
-
 
 
