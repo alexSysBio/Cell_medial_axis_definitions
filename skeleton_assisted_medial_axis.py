@@ -154,8 +154,8 @@ def skeleton_assisted_bivariate_axis(cropped_mask, degree):
             y_coords: the raw y coordinates of the medial axis linearly interpolated for sub-pixel resolution
             x_hat: the bivariate-fitted x coordinates using numpy polyfit and interpoalted linearly
             y_hat: the bivariate-fitted y coordinates using numpy polyfit and interpoalted linearly
-            x: the smoothed x coordinates using rol=3 pixels, min-periods=1 pixel and center=True interpolated linearly
-            y: the smoothed y coordinates using rol=3 pixels, min-periods=1 pixel and center=True interpolated linearly
+            cropped_x: the smoothed x coordinates using rol=3 pixels, min-periods=1 pixel and center=True interpolated linearly
+            cropped_y: the smoothed y coordinates using rol=3 pixels, min-periods=1 pixel and center=True interpolated linearly
 
     """
     cropped_mask = image_framing(cropped_mask, 1)
@@ -180,8 +180,8 @@ def skeleton_assisted_bivariate_axis(cropped_mask, degree):
         axis_df['x_hat'] = x_hat
         axis_df['y_hat'] = y_hat
         roll_df = axis_df.rolling(3, min_periods=1, center=True).mean()
-        axis_df['x'] = roll_df.x_coords
-        axis_df['y'] = roll_df.y_coords
+        axis_df['cropped_x'] = roll_df.x_coords
+        axis_df['cropped_y'] = roll_df.y_coords
         axis_df = axis_df.reindex(np.arange(0,axis_df.shape[0]-1+0.1,0.1)).interpolate()
         
         return axis_df
