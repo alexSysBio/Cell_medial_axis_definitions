@@ -153,11 +153,11 @@ def skeleton_assisted_bivariate_axis(cropped_mask, degree):
     skel, dist = skeletonize_mask(cropped_mask)
     neigh = get_pixel_neighbors(skel)
     
-    #plt.imshow(neigh)
-    #plt.colorbar()
-    #plt.show()
-    #plt.imshow(cropped_mask)
-    #plt.show()
+    # plt.imshow(neigh)
+    # plt.colorbar()
+    # plt.show()
+    # plt.imshow(cropped_mask)
+    # plt.show()
     print(np.max(neigh))
     if np.max(neigh)<=4:
         coord_list = scan_skeleton(skel)
@@ -173,6 +173,7 @@ def skeleton_assisted_bivariate_axis(cropped_mask, degree):
         roll_df = axis_df.rolling(3, min_periods=1, center=True).mean()
         axis_df['x'] = roll_df.x_coords
         axis_df['y'] = roll_df.y_coords
+        axis_df = axis_df.reindex(np.arange(0,axis_df.shape[0]-1+0.1,0.1)).interpolate()
         
         return axis_df
     
