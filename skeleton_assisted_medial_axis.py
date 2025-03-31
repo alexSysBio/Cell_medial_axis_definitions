@@ -153,11 +153,11 @@ def skeleton_assisted_bivariate_axis(cropped_mask, degree):
     skel, dist = skeletonize_mask(cropped_mask)
     neigh = get_pixel_neighbors(skel)
     
-    plt.imshow(neigh)
-    plt.colorbar()
-    plt.show()
-    plt.imshow(cropped_mask)
-    plt.show()
+    #plt.imshow(neigh)
+    #plt.colorbar()
+    #plt.show()
+    #plt.imshow(cropped_mask)
+    #plt.show()
     print(np.max(neigh))
     if np.max(neigh)<=4:
         coord_list = scan_skeleton(skel)
