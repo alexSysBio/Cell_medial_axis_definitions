@@ -145,8 +145,15 @@ def skeleton_assisted_bivariate_axis(cropped_mask, degree):
 
     Returns
     -------
-    3 lists
-        x coordinates, y coordinates, and cell index list
+    Pandas DataDrame
+        columns: 
+            i_coords: the index coorinates of the medial axis used for the bivariate fit
+            x_coords: the raw x coordinates of the medial axis linearly interpolated for sub-pixel resolution
+            y_coords: the raw y coordinates of the medial axis linearly interpolated for sub-pixel resolution
+            x_hat: the bivariate-fitted x coordinates using numpy polyfit and interpoalted linearly
+            y_hat: the bivariate-fitted y coordinates using numpy polyfit and interpoalted linearly
+            x: the smoothed x coordinates using rol=3 pixels, min-periods=1 pixel and center=True interpolated linearly
+            y: the smoothed y coordinates using rol=3 pixels, min-periods=1 pixel and center=True interpolated linearly
 
     """
     cropped_mask = image_framing(cropped_mask, 1)
