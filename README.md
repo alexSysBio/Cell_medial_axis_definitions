@@ -12,7 +12,7 @@ This repository includes custom functions that can be used to draw the medial ce
     
     Alexandros Papagiannakis, Qiwei Yu, Sander K. Govers, Wei-Hsiang Lin,  Ned S. Wingreen, Christine Jacobs-Wagner
     
-    bioRxiv, https://www.biorxiv.org/content/10.1101/2024.10.08.617237v3, March 15, 2025
+    eLife2025;14:RP104276 DOI: https://doi.org/10.7554/eLife.104276.3
 
 
 ## Skeleton-assisted medial axis definition:
